@@ -13,6 +13,11 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
         return;
     }
 
+    if(inputDepoistAmount <= 0){
+        alert('Please input positive value');
+        return;
+    }
+
     const depositTotalElement = document.getElementById('deposit-total');
     const depositTotalString = depositTotalElement.innerText;
     const depositTotal = parseFloat(depositTotalString);
@@ -20,8 +25,9 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
 
     const currentTotalDeposit = depositTotal + inputDepoistAmount;
     // console.log(currentTotalDeposit);
+    const currentTotalDepositAmount = currentTotalDeposit.toFixed(2)
 
-    depositTotalElement.innerText = currentTotalDeposit;
+    depositTotalElement.innerText = currentTotalDepositAmount;
 
     const balanceTotalElement = document.getElementById('balance-total');
     const balanceTotalString = balanceTotalElement.innerText;
@@ -29,6 +35,7 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     // console.log(balanceTotal);
 
     const currentBlanceTotal = balanceTotal + inputDepoistAmount;
+    const currentBlanceTotalAmount = currentBlanceTotal.toFixed(2);
 
-    balanceTotalElement.innerText = currentBlanceTotal;
+    balanceTotalElement.innerText = currentBlanceTotalAmount;
 })

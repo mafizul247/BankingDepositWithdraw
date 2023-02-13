@@ -13,6 +13,10 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
         return;
     }
 
+    if(inputWithdraw <= 0){
+        alert('Please input positive value');
+        return;
+    }
     const previousWithdrawElement = document.getElementById('withdraw-total');
     const previousWithdrowString = previousWithdrawElement.innerText;
     const previousWithdraw = parseFloat(previousWithdrowString);
@@ -31,9 +35,11 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     }
 
     const currentWithdrawBalance = previousWithdraw + inputWithdraw;
+    const currentWithdrawAmount = currentWithdrawBalance.toFixed(2);
     // console.log(currentWithdrawBalance);
-    previousWithdrawElement.innerText = currentWithdrawBalance;
+    previousWithdrawElement.innerText = currentWithdrawAmount;
 
     const currentBalanceTotal = previousBalance - inputWithdraw;
-    previousBalanceElement.innerText = currentBalanceTotal;
+    const currentBalanceAmount = currentBalanceTotal.toFixed(2);
+    previousBalanceElement.innerText = currentBalanceAmount;
 })
